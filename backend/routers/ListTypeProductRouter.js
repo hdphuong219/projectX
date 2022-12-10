@@ -4,7 +4,7 @@ import {
   deleteTypeProduct,
   getAllTypeProduct,
 } from "../controllers/ListTypeProductController.js";
-import  {upload}  from "../untils/until.js";
+import  {upload}  from "../utils/until.js";
 
 const ListTypeProductRouter = express.Router();
 

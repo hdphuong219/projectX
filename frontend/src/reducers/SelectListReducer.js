@@ -14,7 +14,6 @@ export const SelectListReducer = (state = {}, action) => {
 
 export const UpdateSelectListReducer = (state = {}, action) => {
   switch (action.type) {
-
     case "UPDATE_SELECT_LIST_ITEM": {
       return { ...state, SelectItem: action.payload };
     }

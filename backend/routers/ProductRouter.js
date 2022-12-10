@@ -15,8 +15,8 @@ import {
   PinCommentProduct,
   filterProductByRandomField,
 } from "../controllers/ProductController.js";
-import { isAuth, isAdmin } from "../untils/until.js";
-import { upload } from "../untils/until.js";
+import { isAuth, isAdmin } from "../utils/until.js";
+import { upload } from "../utils/until.js";
 
 const ProductRouter = express.Router();
 

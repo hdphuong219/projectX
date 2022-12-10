@@ -16,12 +16,11 @@ function Header(props) {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  
-
   const [showAccount, setShowAccount] = useState(false);
   const [showAccount2, setShowAccount2] = useState(false);
 
   const userSignin = useSelector((state) => state.userSignin);
+  // eslint-disable-next-line no-unused-vars
   const { userInfo, error } = userSignin;
   const [search, setSearch] = useState("");
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -34,10 +33,10 @@ function Header(props) {
   };
 
   const SearchProduct = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     await history.push("/search");
     dispatch(searchProduct(search));
-    setSearch('')
+    setSearch("");
   };
 
   return (

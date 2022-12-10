@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import './ScrollToTop.css'
-import { UpOutlined } from '@ant-design/icons';
+import React, { useEffect, useState } from "react";
+import "./ScrollToTop.css";
+import { UpOutlined } from "@ant-design/icons";
 import { BackTop } from "antd";
-
 
 function ScrollToTop(props) {
   const [heightPage, setHeightPage] = useState(0);

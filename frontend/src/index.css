@@ -4,9 +4,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-p{
+p {
   margin-bottom: 0;
 }
-html, body{
+html,
+body {
   scroll-behavior: smooth;
 }

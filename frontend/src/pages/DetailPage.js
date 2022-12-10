@@ -5,7 +5,7 @@ import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 import AppChat from "../components/AppChat/AppChat";
 import { useSelector } from "react-redux";
 
-function DetailPage(props) {
+function DetailPage() {
   const { userInfo } = useSelector((state) => state.userSignin);
   return (
     <div>

@@ -8,7 +8,6 @@ function BlogContent(props) {
     height: "500px",
   });
 
-
   return (
     <section id="blog">
       {detailProduct.blog ? (
