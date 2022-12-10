@@ -29,7 +29,7 @@ function Login(props) {
         <h2>ĐĂNG KÍ</h2>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          classname="form-signup d-flex flex-column"
+          className="form-signup d-flex flex-column"
         >
           <input {...register("name")} placeholder="Tên người dùng" required></input>
           <input
