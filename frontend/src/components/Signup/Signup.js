@@ -24,33 +24,38 @@ function Login(props) {
   };
 
   return (
-    <div className="signup-page">
-      <h2>ĐĂNG KÍ</h2>
-      <form onSubmit={handleSubmit(onSubmit)} classname="form-signup">
-        <input {...register("name")} placeholder="Name" required></input>
-        <input
-          {...register("email")}
-          placeholder="Email"
-          type="email"
-          required
-        ></input>
-        <input
-          {...register("password")}
-          placeholder="Password"
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        ></input>
-        <input
-          {...register("repeat password")}
-          placeholder=" Repeat password"
-          type="password"
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-        ></input>
+    <div className="layout-auth">
+      <div className="signup-page d-flex flex-column">
+        <h2>ĐĂNG KÍ</h2>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          classname="form-signup d-flex flex-column"
+        >
+          <input {...register("name")} placeholder="Tên người dùng" required></input>
+          <input
+            {...register("email")}
+            placeholder="Email"
+            type="email"
+            required
+          ></input>
+          <input
+            {...register("password")}
+            placeholder="Mật khẩu"
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          ></input>
+          <input
+            {...register("repeat password")}
+            placeholder="Nhập lại mật khẩu"
+            type="password"
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          ></input>
 
-        <input type="submit" value="Đăng Kí"></input>
-      </form>
+          <input type="submit" value="Đăng Kí"></input>
+        </form>
+      </div>
     </div>
   );
 }

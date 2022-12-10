@@ -7,10 +7,10 @@ function Footer(props) {
       <div className="footer">
         <div className="footer-top">
           <div className="footer-top-name">
-            <h2>cellphones</h2>
+            <h2>Tên web</h2>
           </div>
           <div className="footer-top-about">
-            <h2>about</h2>
+            <h2>Về chúng tôi</h2>
             <ul>
               <li>
                 <a href="/">Về Chúng Tôi</a>
@@ -35,30 +35,27 @@ function Footer(props) {
             </ul>
           </div>
           <div className="footer-top-sp">
-            <h2>Always-on Support</h2>
-            <p>Support 028.71.087.088 (07:00-21:00)</p>
-            <p>Delivery 1800 6936 (07:00-21:00)</p>
+            <h2>Hỗ trợ</h2>
+            <p>Hỗ trợ 028.71.087.088 (07:00-21:00)</p>
+            <p>Vận chuyển 1800 6936 (07:00-21:00)</p>
           </div>
           <div className="footer-top-delivery">
-            <h2>Delivery</h2>
+            <h2>Giao hàng</h2>
             <ul>
               <li>
-                <a href="/">Shipping methods</a>
+                <a href="/">Phương thức giao hàng</a>
               </li>
               <li>
-                <a href="/">Payment</a>
+                <a href="/">Chuyển khoản</a>
               </li>
               <li>
-                <a href="/">Cash voucher</a>
-              </li>
-              <li>
-                <a href="/">Shipping methods</a>
+                <a href="/">Tiền mặt</a>
               </li>
             </ul>
           </div>
         </div>
         <div className="footer-bot">
-          <p>Copyright © 2020 Cellphones. All rights reserved.</p>
+          <p>Copyright © 2020 Webname. All rights reserved.</p>
         </div>
       </div>
     </section>

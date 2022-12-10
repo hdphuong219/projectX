@@ -15,6 +15,7 @@ export default function FilterMenu() {
 
   useEffect(() => {
     dispatch(filterProductByRandomField(dataFilter));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataFilter]);
 
   useEffect(() => {
@@ -92,7 +93,7 @@ export default function FilterMenu() {
       }
       onClick={() => HandleFilterProductByType(item.name)}
     >
-      <img src={item.img}></img>
+      <img src={item.img} alt=""></img>
     </div>
   );
 

@@ -4,6 +4,13 @@ import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import banner1 from "../../assets/images/banner1.jpg";
+import banner2 from "../../assets/images/banner2.png";
+import banner3 from "../../assets/images/banner3.png";
+import banner4 from "../../assets/images/banner4.png";
+import banner5 from "../../assets/images/banner5.png";
+import banner6 from "../../assets/images/banner6.png";
+import banner7 from "../../assets/images/banner7.png";
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -70,34 +77,16 @@ function Carousel(props) {
               {...settings}
             >
               <div key={1}>
-                <img
-                  src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/loa-691-301-max.png"
-                  alt=""
-                ></img>
+                <img src={banner1} alt=""></img>
               </div>
               <div key={2}>
-                <img
-                  src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/1380-600-max.png"
-                  alt=""
-                ></img>
+                <img src={banner2} alt=""></img>
               </div>
               <div key={3}>
-                <img
-                  src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/ip11-tg-690-300-max.png"
-                  alt=""
-                ></img>
+                <img src={banner3} alt=""></img>
               </div>
               <div key={4}>
-                <img
-                  src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/dd690x300_XR.png"
-                  alt=""
-                ></img>
-              </div>
-              <div key={4}>
-                <img
-                  src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/se-aw-690-300-max.png"
-                  alt=""
-                ></img>
+                <img src={banner4} alt=""></img>
               </div>
             </Slider>
             <div className="carousel-left-move" onClick={() => previous()}>
@@ -121,38 +110,26 @@ function Carousel(props) {
                 TRỢ GIÁ MÙA WORLD CUP <br></br> Ưu đãi vô địch
               </div>
               <div>
-                NOTE 20 ULTRA 5G <br></br> Hotsale giảm sập sàn
+                MỪNG KHAI TRƯƠNG <br></br> Giảm đến đến 49%
               </div>
               <div>
-                XR CHÍNH HÃNG <br></br> Giá mới cực tốt
+                XẢ KHO HÀNG CŨ <br></br> Tiết kiệm đến 63%
               </div>
               <div>
-                APPLE WATCH SE <br></br> Mua đi chờ chi
-              </div>
-              <div>
-                ĐẠI TIỆC ÂM THANH <br></br> Loa sale bung nóc
+                60 NĂM MARSHALL <br></br> Giảm sốc quà ngon
               </div>
             </Slider>
           </div>
         </div>
         <div className="carousel-right">
           <div className="carousel-right-item">
-            <img
-              src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/RB_S21.png"
-              alt=""
-            ></img>
+            <img src={banner5} alt=""></img>
           </div>
           <div className="carousel-right-item">
-            <img
-              src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/iPhone_12_690x300_copyssspng.png"
-              alt=""
-            ></img>
+            <img src={banner6} alt=""></img>
           </div>
           <div className="carousel-right-item">
-            <img
-              src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/11lite-690-300-max.png"
-              alt=""
-            ></img>
+            <img src={banner7} alt=""></img>
           </div>
         </div>
       </div>

@@ -13,54 +13,61 @@ import {
 
 function Sidebar(props) {
   const dispatch = useDispatch();
-  const location = useLocation()
+  const location = useLocation();
   const { orderPendding } = useSelector((state) => state.allOrder);
-  let totalNewOrder
-  
-  if(orderPendding){
-    totalNewOrder = orderPendding.length
+  let totalNewOrder;
+
+  if (orderPendding) {
+    totalNewOrder = orderPendding.length;
   }
 
   useEffect(() => {
     const getNewOrder = () => {
       dispatch(GetAllOrderPendding());
-    }
-    getNewOrder()
+    };
+    getNewOrder();
   }, [dispatch]);
 
   return (
     <div className="sidebar">
       <div className="sidebar-top">
-        <img src="https://raw.githubusercontent.com/trananhtuat/tua-react-admin/main/src/assets/images/logo.png"></img>
+        <img
+          src="https://raw.githubusercontent.com/trananhtuat/tua-react-admin/main/src/assets/images/logo.png"
+          alt=""
+        ></img>
       </div>
       <div className="sidebar-list">
-        <Link to="/admin" className={'sidebar-list-item'}>
+        <Link to="/admin" className={"sidebar-list-item"}>
           <span>
             <AppstoreOutlined></AppstoreOutlined>
           </span>
-          <p>Dashboard</p>
+          <p>Bảng điều khiển</p>
         </Link>
-        <Link to="/admin/customer" className={'sidebar-list-item'}>
-          <span>
-            <UsergroupAddOutlined></UsergroupAddOutlined>
-          </span>
-          <p>Customer</p>
-        </Link>
-        <Link to="/admin/product" className={'sidebar-list-item'}>
+        <Link to="/admin/category" className={"sidebar-list-item"}>
           <span>
             <ShopOutlined></ShopOutlined>
           </span>
-          <p>Products</p>
+          <p>Danh mục</p>
         </Link>
-        <Link to="/admin/order" className={'sidebar-list-item'}>
+        <Link to="/admin/product" className={"sidebar-list-item"}>
+          <span>
+            <ShopOutlined></ShopOutlined>
+          </span>
+          <p>Sản phẩm</p>
+        </Link>
+        <Link to="/admin/customer" className={"sidebar-list-item"}>
+          <span>
+            <UsergroupAddOutlined></UsergroupAddOutlined>
+          </span>
+          <p>Khách hàng</p>
+        </Link>
+        <Link to="/admin/order" className={"sidebar-list-item"}>
           <span>
             <OrderedListOutlined></OrderedListOutlined>
           </span>
           <p>
-            Order
-            <div className="admin-order-new">
-                {totalNewOrder}
-              </div>
+            Đặt hàng
+            <div className="admin-order-new">{totalNewOrder}</div>
           </p>
         </Link>
         {/* <Link to="/admin/chat" className={location.pathname === '/admin/chat' ? 'sidebar-list-item active': 'sidebar-list-item'}>

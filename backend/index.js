@@ -18,6 +18,7 @@ import cloudinary from './config/cloudinary/cloudinary.js'
 import PaymentRouter from './routers/PaymentRouter.js'
 import SelectListrouter from './routers/SelectListRouter.js'
 import ListTypeProductRouter from './routers/ListTypeProductRouter.js'
+import CategoryRouter from './routers/CategoryRouter.js'
 
 dotenv.config();
 process.env.TOKEN_SECRET;

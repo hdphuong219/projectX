@@ -4,8 +4,8 @@ import {
   SearchOutlined,
   ShoppingCartOutlined,
   ShoppingOutlined,
-  DollarCircleOutlined,
-  FileTextOutlined,
+  ShopOutlined,
+  UserOutlined,
 } from "@ant-design/icons";
 import "./DashBoard.css";
 import ChartDashBoard from "./ChartDashBoard";
@@ -17,7 +17,7 @@ export default function DashBoard() {
         <div className="dashboard-top">
           <div className="dashboard-top-search">
             <form>
-              <input placeholder="Search ..."></input>
+              <input placeholder="Tìm kiếm ..."></input>
               <span>
                 <SearchOutlined></SearchOutlined>
               </span>
@@ -25,8 +25,11 @@ export default function DashBoard() {
           </div>
           <div className="dashboard-top-content">
             <li className="dashboard-top-content-avatar">
-              <img src="https://res.cloudinary.com/caokhahieu/image/upload/v1626334932/gediogbkwlg85kbbsamq.jpg"></img>
-              <span>Ha Duy Phuong</span>
+              <img
+                src="https://res.cloudinary.com/caokhahieu/image/upload/v1626334932/gediogbkwlg85kbbsamq.jpg"
+                alt=""
+              ></img>
+              <span>Admin</span>
             </li>
             <li className="dashboard-top-content-bell">
               <BellOutlined></BellOutlined>
@@ -43,7 +46,29 @@ export default function DashBoard() {
                 </div>
                 <div className="dashboard-middle-statistic-title">
                   <span className="total">1666</span>
-                  <span className="title">Total Sales</span>
+                  <span className="title">Danh mục</span>
+                </div>
+              </li>
+            </div>
+            <div className="dashboard-middle-statistic-content">
+              <li>
+                <div className="dashboard-middle-statistic-icon">
+                  <ShopOutlined></ShopOutlined>
+                </div>
+                <div className="dashboard-middle-statistic-title">
+                  <span className="total">25</span>
+                  <span className="title">Sản phẩm</span>
+                </div>
+              </li>
+            </div>
+            <div className="dashboard-middle-statistic-content">
+              <li>
+                <div className="dashboard-middle-statistic-icon">
+                  <UserOutlined></UserOutlined>
+                </div>
+                <div className="dashboard-middle-statistic-title">
+                  <span className="total">2000</span>
+                  <span className="title">Khách hàng</span>
                 </div>
               </li>
             </div>
@@ -53,30 +78,8 @@ export default function DashBoard() {
                   <ShoppingCartOutlined></ShoppingCartOutlined>
                 </div>
                 <div className="dashboard-middle-statistic-title">
-                  <span className="total">25</span>
-                  <span className="title">Daily Visits</span>
-                </div>
-              </li>
-            </div>
-            <div className="dashboard-middle-statistic-content">
-              <li>
-                <div className="dashboard-middle-statistic-icon">
-                  <DollarCircleOutlined></DollarCircleOutlined>
-                </div>
-                <div className="dashboard-middle-statistic-title">
-                  <span className="total">2000</span>
-                  <span className="title">Total Income</span>
-                </div>
-              </li>
-            </div>
-            <div className="dashboard-middle-statistic-content">
-              <li>
-                <div className="dashboard-middle-statistic-icon">
-                  <FileTextOutlined></FileTextOutlined>
-                </div>
-                <div className="dashboard-middle-statistic-title">
                   <span className="total">1208</span>
-                  <span className="title">Total Orders</span>
+                  <span className="title">Đặt hàng</span>
                 </div>
               </li>
             </div>

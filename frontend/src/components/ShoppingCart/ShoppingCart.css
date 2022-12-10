@@ -18,7 +18,7 @@
 .shopping-cart-header a {
     display: flex;
     flex-grow: 1;
-    color: #d70018;
+    color: #4a90e2;
 }
 
 .shopping-cart-list {
@@ -60,7 +60,7 @@
     margin-top: 1rem;
 }
 .shopping-cart-list-product-bottom button {
-    color: #d70018;
+    color: #4a90e2;
     font-size: 15px;
     border: none;
     background: none;
