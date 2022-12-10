@@ -25,6 +25,7 @@
     margin: 1rem;
     font-size: 15px;
     border: 1px solid #4a90e2;
+    border-radius: 5px;
 }
 .signup-page input[type="submit"] {
     background: #4a90e2;

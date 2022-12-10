@@ -33,13 +33,14 @@ function Login(props) {
     <div className="layout-auth">
       <div class="login-page">
         <h2> ĐĂNG NHẬP </h2>
-        <form onSubmit={handleSubmit(onSubmit)} class="form-login">
+        <form onSubmit={handleSubmit(onSubmit)} className="form-login">
           <input {...register("email")} placeholder="Email" required></input>
           <input
             {...register("password")}
             placeholder="Mật khẩu"
             type="password"
             required
+          
           ></input>
 
           <input type="submit" value="Đăng Nhập"></input>

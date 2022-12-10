@@ -40,7 +40,7 @@ function AllComment(props) {
   };
 
   return (
-    <div class="all-comment">
+    <div className="all-comment">
       {allComment.map((comment) => (
         <>
           <Col span={18} style={{ marginTop: "1rem" }} xs={24} sm={24} md={18}>

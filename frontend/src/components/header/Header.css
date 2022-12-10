@@ -59,7 +59,7 @@
 .menu-drop {
     position: absolute;
     margin-top: 0.5rem;
-    top: 100%;
+    top: 80%;
     width: 100%;
     left: 0;
     background: white;
@@ -67,6 +67,7 @@
     flex-direction: column;
 
     box-shadow: 4px 3px 4px -5px;
+    border-radius: 5px;
 }
 .menu-drop a {
     padding: 0.3rem 1rem;
@@ -75,6 +76,7 @@
 .menu-drop a:hover {
     background: #eee;
     color: #333;
+    border-radius: 5px;
 }
 .search {
     flex-grow: 1;
