@@ -4,10 +4,9 @@ import {
   DeleteProduct,
   paginationProduct,
 } from "../../../../actions/ProductAction";
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { formatPrice } from "../../../../utils/index";
 import { DeleteOutlined, EditOutlined, FormOutlined } from "@ant-design/icons";
-
 
 function Product(props) {
   const { product, number } = props;
@@ -23,11 +22,21 @@ function Product(props) {
     <tr>
       <td>{number + 1}</td>
       <td>
-        <img src={product.image}></img>
+        <img src={product.image} alt=""></img>
       </td>
       <td>{product.name}</td>
       <td>{formatPrice(product.salePrice)}</td>
-      <td>{product.type}</td>
+      <td>
+        {product.category_id === "6394333141ce8d28cdb6f4d4"
+          ? "Nhà bếp"
+          : product.category_id === "6394333141ce8d28cdb6f4d2"
+          ? "Thiết bị gia đình"
+          : product.category_id === "6394333141ce8d28cdb6f4d1"
+          ? "Xay ép, pha chế"
+          : product.category_id === "6394333141ce8d28cdb6f4d3"
+          ? "Quạt các loại"
+          : ""}
+      </td>
       <td
         className="delete-product"
         onClick={(e) => handleDeleteProduct(product)}
@@ -40,7 +49,7 @@ function Product(props) {
         </Link>
       </td>
       <td className="review-product">
-        <Link to={`/admin/product/reviewProduct/${product._id}`} >
+        <Link to={`/admin/product/reviewProduct/${product._id}`}>
           <FormOutlined></FormOutlined>
         </Link>
       </td>

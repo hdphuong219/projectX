@@ -12,6 +12,7 @@ import {
 } from "./reducers/ProductReducer";
 
 import { CartReducer } from "./reducers/CartReducer";
+import { CategoryReducer } from "./reducers/CategoryReducer";
 import {
   addressReducer,
   getAllOrderReducer,
@@ -73,6 +74,7 @@ const reducer = combineReducers({
 
   allTypeProduct: ListTypeProductReducer,
   detailType: TypeProductReducer,
+  category: CategoryReducer
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

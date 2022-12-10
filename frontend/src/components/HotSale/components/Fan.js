@@ -3,16 +3,15 @@ import axios from "axios";
 import ListProduct from "../ListProduct";
 import { handlePercentDiscount } from "../../../utils/index";
 
-function Iphone(props) {
-  const [name, setName] = useState("cooker");
-  const [hotIphone, setHotIphone] = useState([]);
+function Fan(props) {
+  const [hotFan, setHotFan] = useState([]);
   useEffect(() => {
     async function FetchApi() {
       try {
         const { data } = await axios.get(
-          `http://localhost:4000/products/${name}`
+          `http://localhost:4000/category/6394333141ce8d28cdb6f4d3`
         );
-        setHotIphone(data);
+        setHotFan(data);
       } catch (error) {}
     }
     FetchApi();
@@ -20,12 +19,12 @@ function Iphone(props) {
   }, []);
 
   return (
-    <section id="hotsale iphone">
+    <section id="hotsale Fan">
       <div className="hotsale">
-        <h2>BẾP</h2>
-        {hotIphone ? (
+        <h2>Quạt các loại</h2>
+        {hotFan ? (
           <ListProduct
-            HotSaleProducts={handlePercentDiscount(hotIphone)}
+            HotSaleProducts={handlePercentDiscount(hotFan)}
           ></ListProduct>
         ) : (
           ""
@@ -35,4 +34,4 @@ function Iphone(props) {
   );
 }
 
-export default Iphone;
+export default Fan;
