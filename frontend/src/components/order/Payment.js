@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { PayPalButton } from "react-paypal-button-v2";
-import { createOrder, payOrder } from "../../actions/OrderAction";
+import { createOrder } from "../../actions/OrderAction";
 import { useHistory } from "react-router-dom";
 import VnPay from "./VnPay";
 
 export default function Payment() {
   const history = useHistory();
   const dispatch = useDispatch();
+  // eslint-disable-next-line no-unused-vars
   const [sdkReady, setSdkReady] = useState(false);
   const [choosePay, setChoosePay] = useState({
     payLater: false,
@@ -16,7 +17,6 @@ export default function Payment() {
   });
 
   const { order } = useSelector((state) => state.orderInfo);
-
 
   const payLater = () => {
     setChoosePay({ payOnline: false, payLater: true });
@@ -31,7 +31,7 @@ export default function Payment() {
       ...order,
       status: "pendding",
       paymentMethod: "payOnline",
-      paymentResult: {...paymentResult},
+      paymentResult: { ...paymentResult },
     };
     await dispatch(createOrder(OrderPaid));
     history.push("/orderSuccess");
@@ -44,7 +44,7 @@ export default function Payment() {
       paymentMethod: "payLater",
     };
 
-    await dispatch(createOrder(OrderPaid))
+    await dispatch(createOrder(OrderPaid));
     history.push("/orderSuccess");
   };
 
@@ -61,9 +61,8 @@ export default function Payment() {
         setSdkReady(true);
       };
       document.body.appendChild(script);
-
-      addPayPalScript();
     };
+    addPayPalScript();
   }, []);
   return (
     <div className="choose-pay">
@@ -93,11 +92,10 @@ export default function Payment() {
       )}
       {choosePay.payOnline ? (
         <button type="submit" className="paypal">
-          
           <VnPay></VnPay>
           <PayPalButton
             className="paypal-btn"
-            style={{ color: "white", marginTop: '1rem' }}
+            style={{ color: "white", marginTop: "1rem" }}
             amount={1}
             onSuccess={successPaymentHandler}
           ></PayPalButton>
@@ -105,7 +103,6 @@ export default function Payment() {
       ) : (
         ""
       )}
-
     </div>
   );
 }

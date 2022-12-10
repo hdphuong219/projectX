@@ -1,5 +1,5 @@
 import {UserModel} from '../models/UserModel.js'
-import {generateToken} from '../untils/until.js'
+import {generateToken} from '../utils/until.js'
 import expressAsyncHandler from 'express-async-handler'
 
 export const getAllUser = (req, res) => {

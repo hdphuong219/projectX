@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./FilterMenu.css";
 import { Dropdown } from "antd";
-import { DownOutlined} from "@ant-design/icons";
-import {
-  filterProductByRandomField,
-} from "../../../actions/ProductAction";
+import { DownOutlined } from "@ant-design/icons";
+import { filterProductByRandomField } from "../../../actions/ProductAction";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllSelectList } from "../../../actions/SelectListAction";
 import { getAllTypeProduct } from "../../../actions/ListTypeProductAction";
@@ -12,20 +10,20 @@ import { getAllTypeProduct } from "../../../actions/ListTypeProductAction";
 export default function FilterMenu() {
   const dispatch = useDispatch();
   const [dataFilter, setDataFilter] = useState({});
-  const filterMenuList = useSelector(state => state.selectList.List)
-  const { List} = useSelector(state => state.allTypeProduct)
+  const filterMenuList = useSelector((state) => state.selectList.List);
+  const { List } = useSelector((state) => state.allTypeProduct);
 
   useEffect(() => {
     dispatch(filterProductByRandomField(dataFilter));
   }, [dataFilter]);
 
   useEffect(() => {
-    dispatch(getAllSelectList())
-  }, [dispatch])
+    dispatch(getAllSelectList());
+  }, [dispatch]);
 
   useEffect(() => {
-    dispatch(getAllTypeProduct())
-  }, [dispatch])
+    dispatch(getAllTypeProduct());
+  }, [dispatch]);
 
   const filterMenuItemAntd = (item) => (
     <div className="filter-menu-item">
@@ -111,15 +109,13 @@ export default function FilterMenu() {
   return (
     <div>
       <div className="filter-menu-firm">
-        {
-          List ? (List.map((item) => MenuFirmProduct(item))) : ''
-        }
+        {List ? List.map((item) => MenuFirmProduct(item)) : ""}
       </div>
 
       <div className="filter-menu">
-        {
-          filterMenuList && filterMenuList.length > 0 ? (filterMenuList.map((item) => filterMenuItemAntd(item))) : ''
-        }
+        {filterMenuList && filterMenuList.length > 0
+          ? filterMenuList.map((item) => filterMenuItemAntd(item))
+          : ""}
       </div>
     </div>
   );

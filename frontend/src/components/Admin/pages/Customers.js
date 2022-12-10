@@ -1,12 +1,7 @@
-import React from 'react';
-
+import React from "react";
 
 function Customers(props) {
-    return (
-        <div>
-            customer
-        </div>
-    );
+  return <div>customer</div>;
 }
 
 export default Customers;

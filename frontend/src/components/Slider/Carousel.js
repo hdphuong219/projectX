@@ -10,7 +10,7 @@ function SampleNextArrow(props) {
   return (
     <div
       className={`${className}`}
-      style={{ display: 'none' }}
+      style={{ display: "none" }}
       onClick={onClick}
     />
   );
@@ -21,25 +21,26 @@ function SamplePrevArrow(props) {
   return (
     <div
       className={`${className}`}
-      style={{ display: 'none'}}
+      style={{ display: "none" }}
       onClick={onClick}
     />
   );
 }
 
 function Carousel(props) {
-  let {slider, slider1, slider2} = props
-  const [nav, setNav] = useState({nav1: null, nav2: null})
+  let { slider1, slider2 } = props;
+  const [nav, setNav] = useState({ nav1: null, nav2: null });
 
   useEffect(() => {
     setNav({
       nav1: slider1,
-      nav2: slider2
-    })
-  }, [])
+      nav2: slider2,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const settings = {
-    loop:true,
+    loop: true,
     dots: false,
     infinite: true,
     // autoplay: true,
@@ -51,83 +52,107 @@ function Carousel(props) {
     prevArrow: <SamplePrevArrow />,
   };
 
- 
-  const next = () =>  {
+  const next = () => {
     slider1.slickNext();
-  }
+  };
   const previous = () => {
     slider2.slickPrev();
-  }
+  };
 
   return (
     <section id="carousel">
       <div className="carousel">
         <div className="carousel-left">
           <div className="carousel-left-slide">
-            <Slider asNavFor={nav.nav2}
-                    ref={slider => (slider1 = slider)} 
-                    {...settings} >
+            <Slider
+              asNavFor={nav.nav2}
+              ref={(slider) => (slider1 = slider)}
+              {...settings}
+            >
               <div key={1}>
-                <img src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/loa-691-301-max.png"></img>
+                <img
+                  src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/loa-691-301-max.png"
+                  alt=""
+                ></img>
               </div>
               <div key={2}>
-                <img src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/1380-600-max.png"></img>
+                <img
+                  src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/1380-600-max.png"
+                  alt=""
+                ></img>
               </div>
               <div key={3}>
-                <img src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/ip11-tg-690-300-max.png"></img>
+                <img
+                  src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/ip11-tg-690-300-max.png"
+                  alt=""
+                ></img>
               </div>
               <div key={4}>
-                <img src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/dd690x300_XR.png"></img>
+                <img
+                  src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/dd690x300_XR.png"
+                  alt=""
+                ></img>
               </div>
               <div key={4}>
-                <img src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/se-aw-690-300-max.png"></img>
+                <img
+                  src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/se-aw-690-300-max.png"
+                  alt=""
+                ></img>
               </div>
             </Slider>
-            <div className='carousel-left-move' onClick={() => previous()}>
-                <div className="prev">
-                    <LeftOutlined></LeftOutlined>
-                </div>
-                <div className="next" onClick={() => next()}>
-                    <RightOutlined></RightOutlined>
-                </div>
+            <div className="carousel-left-move" onClick={() => previous()}>
+              <div className="prev">
+                <LeftOutlined></LeftOutlined>
+              </div>
+              <div className="next" onClick={() => next()}>
+                <RightOutlined></RightOutlined>
+              </div>
             </div>
           </div>
           <div className="carousel-left-bottom">
-            <Slider asNavFor={nav.nav1}
-                    ref={slider => (slider2 = slider)}
-                    slidesToShow={4}
-                    swipeToSlide={true}
-                    focusOnSelect={true}
-                     >
-              
+            <Slider
+              asNavFor={nav.nav1}
+              ref={(slider) => (slider2 = slider)}
+              slidesToShow={4}
+              swipeToSlide={true}
+              focusOnSelect={true}
+            >
               <div>
-                TRỢ GIÁ MÙA DỊCH <br></br> Ưu đãi vô địch
+                TRỢ GIÁ MÙA WORLD CUP <br></br> Ưu đãi vô địch
               </div>
               <div>
-                NOTE 20 ULTRA 5G  <br></br>  Hotsale giảm sập sàn
+                NOTE 20 ULTRA 5G <br></br> Hotsale giảm sập sàn
               </div>
               <div>
-              XR CHÍNH HÃNG  <br></br>  Giá mới cực tốt
+                XR CHÍNH HÃNG <br></br> Giá mới cực tốt
               </div>
               <div>
-              APPLE WATCH SE  <br></br>  Mua đi chờ chi
+                APPLE WATCH SE <br></br> Mua đi chờ chi
               </div>
               <div>
-              ĐẠI TIỆC ÂM THANH   <br></br>   Loa sale bung nóc
+                ĐẠI TIỆC ÂM THANH <br></br> Loa sale bung nóc
               </div>
-
             </Slider>
           </div>
         </div>
         <div className="carousel-right">
           <div className="carousel-right-item">
-            <img src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/RB_S21.png"></img>
+            <img
+              src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/RB_S21.png"
+              alt=""
+            ></img>
           </div>
           <div className="carousel-right-item">
-            <img src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/iPhone_12_690x300_copyssspng.png"></img>
+            <img
+              src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/iPhone_12_690x300_copyssspng.png"
+              alt=""
+            ></img>
           </div>
           <div className="carousel-right-item">
-            <img src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/11lite-690-300-max.png"></img>
+            <img
+              src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/11lite-690-300-max.png"
+              alt=""
+            ></img>
           </div>
         </div>
       </div>

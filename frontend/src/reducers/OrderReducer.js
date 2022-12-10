@@ -1,4 +1,3 @@
-
 export const getAllOrderReducer = (state = {}, action) => {
   switch (action.type) {
     case "GET_ALL_ORDER": {

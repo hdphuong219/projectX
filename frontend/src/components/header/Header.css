@@ -1,8 +1,8 @@
 /* menu */
-*{
+* {
     box-sizing: border-box;
 }
-.header{
+.header {
     width: 100%;
     height: 60px;
     background: #d70018;
@@ -18,11 +18,11 @@
     display: flex;
     align-items: center;
 }
-.logo{
-   display: flex;
-   justify-content: flex-start;
+.logo {
+    display: flex;
+    justify-content: flex-start;
 }
-.logo span a{
+.logo span a {
     font-size: 25px;
     color: #fff;
     margin-right: 1rem;
@@ -56,9 +56,9 @@
     margin: 0;
     padding: 0;
 }
-.menu-drop{
+.menu-drop {
     position: absolute;
-    margin-top: .5rem;
+    margin-top: 0.5rem;
     top: 100%;
     width: 100%;
     left: 0;
@@ -68,53 +68,51 @@
 
     box-shadow: 4px 3px 4px -5px;
 }
-.menu-drop a{
-    padding: .3rem 1rem;
+.menu-drop a {
+    padding: 0.3rem 1rem;
     color: #333;
 }
-.menu-drop a:hover{
+.menu-drop a:hover {
     background: #eee;
     color: #333;
 }
-.search{
+.search {
     flex-grow: 1;
 }
 .search form {
     position: relative;
- }
+}
 .search form input {
-   padding: .3rem 1rem;
-   outline: none;
-   border: none;
-   width: 100%;
+    padding: 0.3rem 1rem;
+    outline: none;
+    border: none;
+    width: 100%;
 }
 .search form span {
     position: absolute;
     right: 5px;
     top: 50%;
     transform: translateY(-50%);
- }
- .search form span svg{
+}
+.search form span svg {
     font-size: 22px;
     color: black;
- }
-
-
+}
 
 /* search product */
-.SearchProduct{
+.SearchProduct {
     display: flex;
     position: relative;
     margin: 0 30px;
 }
-#SearchProduct{
+#SearchProduct {
     width: 700px;
     height: 50px;
     border: none;
     outline: none;
     padding: 0 20px;
 }
-.submit{
+.submit {
     position: absolute;
     right: 10px;
     top: 5px;
@@ -128,14 +126,14 @@
     padding: 5px;
     font-size: 22px;
 }
-.close{
+.close {
     display: none;
 }
-.bar{
+.bar {
     display: none;
     cursor: pointer;
 }
-.line{
+.line {
     display: block;
     width: 25px;
     height: 3px;
@@ -143,13 +141,12 @@
     margin: 8px 0;
 }
 
-.ant-dropdown-link:hover{
+.ant-dropdown-link:hover {
     color: #fff;
     cursor: pointer;
 }
 
-
-.count{
+.count {
     position: absolute;
     top: 0;
     right: 0px;
@@ -163,25 +160,24 @@
     border-radius: 100%;
 }
 
-@media screen and (max-width: 800px){
-    #hidden{
+@media screen and (max-width: 800px) {
+    #hidden {
         display: none;
     }
-    #menu{
+    #menu {
         width: 100%;
-        padding: 0 .3rem;
+        padding: 0 0.3rem;
     }
-    .logo{
+    .logo {
         flex-grow: 0;
     }
-    .menu-list{
+    .menu-list {
         position: absolute;
-        top:0%;
+        top: 0%;
         left: 0;
         width: 100%;
         height: 100vh;
 
-       
         flex-direction: column;
         background: black;
         z-index: 11;
@@ -189,31 +185,31 @@
         padding-top: 9rem;
         margin-top: 60px;
     }
-    .menu-list li{
+    .menu-list li {
         padding: 1rem 0;
     }
-    .menu-list a{
+    .menu-list a {
         padding: 0;
         color: white;
     }
-    .close{
+    .close {
         position: absolute;
         right: 1rem;
         top: 1rem;
         cursor: pointer;
         display: block;
     }
-    .bar{
+    .bar {
         display: block;
         margin-left: 1rem;
     }
-    .search{
+    .search {
         flex-grow: 1;
     }
-    .search form{
+    .search form {
         display: flex;
     }
     .search form input {
         width: 100%;
-     }
+    }
 }

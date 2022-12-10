@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import './Login.css'
+import React, { useEffect } from "react";
+import "./Login.css";
 import { useForm } from "react-hook-form";
-import { useSelector, useDispatch } from 'react-redux';
-import {login} from '../../actions/UserAction'
-import { useHistory } from 'react-router';
-import {Link} from 'react-router-dom'
+import { useSelector, useDispatch } from "react-redux";
+import { login } from "../../actions/UserAction";
+import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 
 function Login(props) {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ function Login(props) {
   const {
     register,
     handleSubmit,
-    watch,
+    // eslint-disable-next-line no-unused-vars
     formState: { errors },
   } = useForm();
 

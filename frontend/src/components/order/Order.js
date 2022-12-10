@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import './Order.css'
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from "react";
+import "./Order.css";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import {
   GetAllDistrict,
@@ -8,11 +8,9 @@ import {
   GetAllWard,
   OrderInfo,
 } from "../../actions/OrderAction";
-import { useHistory } from "react-router-dom";
 import Payment from "./Payment";
 
 function Order(props) {
-
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
 
@@ -24,10 +22,11 @@ function Order(props) {
   const [listDistrict, setListDistrict] = useState(false);
   const [listWard, setListWard] = useState(false);
 
-  const [chooseProvince, setChooseProvince] = useState({name: "Hồ Chí Minh"});
-  const [chooseDistrict, setChooseDistrict] = useState({name: "Quận / Huyện"});
-  const [chooseWard, setChooseWard] = useState({name: "Phường / Xã"});
-
+  const [chooseProvince, setChooseProvince] = useState({ name: "Hồ Chí Minh" });
+  const [chooseDistrict, setChooseDistrict] = useState({
+    name: "Quận / Huyện",
+  });
+  const [chooseWard, setChooseWard] = useState({ name: "Phường / Xã" });
 
   const handleListProvince = (e) => {
     e.preventDefault();
@@ -55,7 +54,7 @@ function Order(props) {
       return;
     }
     const Order = {
-      to_ward_code: chooseWard.id ,
+      to_ward_code: chooseWard.id,
       to_district_id: chooseDistrict.id,
 
       orderItems: [...cartItems],
@@ -75,26 +74,28 @@ function Order(props) {
 
   useEffect(() => {
     dispatch(GetAllProvince());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     dispatch(GetAllDistrict(202));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSelectProvince = (name, id) => {
-    setChooseProvince({name, id});
+    setChooseProvince({ name, id });
     setListProvince(!listProvince);
     dispatch(GetAllDistrict(id));
   };
 
   const handleSelectDistrict = (name, id) => {
-    setChooseDistrict({name, id});
+    setChooseDistrict({ name, id });
     setListDistrict(!listDistrict);
     dispatch(GetAllWard(id));
   };
 
   const handleSelectWard = (name, id) => {
-    setChooseWard({name, id});
+    setChooseWard({ name, id });
     setListWard(!listWard);
   };
 
@@ -140,12 +141,12 @@ function Order(props) {
                               <span
                                 onClick={() =>
                                   handleSelectProvince(
-                                    item. ProvinceName,
+                                    item.ProvinceName,
                                     item.ProvinceID
                                   )
                                 }
                               >
-                                {item. ProvinceName}
+                                {item.ProvinceName}
                               </span>
                             ))
                           : ""}
@@ -217,10 +218,10 @@ function Order(props) {
                           ? allWard.data.map((item) => (
                               <span
                                 onClick={() =>
-                                  handleSelectWard(item. WardName, item.WardCode)
+                                  handleSelectWard(item.WardName, item.WardCode)
                                 }
                               >
-                                {item. WardName}
+                                {item.WardName}
                               </span>
                             ))
                           : ""}

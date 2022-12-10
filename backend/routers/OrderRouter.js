@@ -18,7 +18,7 @@ import {
   PrintOrderGhn,
   clientCancelOrder,
 } from "../controllers/OrderController.js";
-import { isAuth, isAdmin } from "../untils/until.js";
+import { isAuth, isAdmin } from "../utils/until.js";
 
 const OrderRouter = express.Router();
 

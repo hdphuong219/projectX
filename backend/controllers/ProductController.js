@@ -1,6 +1,6 @@
 import {ProductModel} from '../models/ProductModel.js'
 import expressAsyncHandler from 'express-async-handler'
-import { PinComment } from '../untils/until.js'
+import { PinComment } from '../utils/until.js'
 import cloudinary from 'cloudinary'
 import {data} from '../data.js'
 

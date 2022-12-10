@@ -1,39 +1,38 @@
-*{
+* {
     box-sizing: border-box;
 }
-#carousel{
+#carousel {
     width: 100%;
     margin-top: 1rem;
 }
-.carousel{
+.carousel {
     width: 80%;
     margin: 0 auto;
     display: flex;
 }
-.carousel-left{
+.carousel-left {
     width: 70%;
-    margin:0 auto;
-    
+    margin: 0 auto;
+
     position: relative;
 }
-.carousel-left-slide{
+.carousel-left-slide {
     position: relative;
-    overflow:hidden;
+    overflow: hidden;
 }
-.carousel-left-slide img{
+.carousel-left-slide img {
     width: 100%;
 }
-.carousel-left-slide:hover .prev{
+.carousel-left-slide:hover .prev {
     transform: translateX(0);
-    transition: .5s;
+    transition: 0.5s;
 }
-.carousel-left-slide:hover .next{
+.carousel-left-slide:hover .next {
     transform: translateX(0);
-    transition: .5s;
+    transition: 0.5s;
 }
 
-.carousel-left-move{
-
+.carousel-left-move {
     width: 100%;
     position: absolute;
     top: 50%;
@@ -42,9 +41,10 @@
     display: flex;
     justify-content: space-between;
 
-    transition: .4s;
+    transition: 0.4s;
 }
-.carousel-left-slide .prev,.carousel-left-slide .next{
+.carousel-left-slide .prev,
+.carousel-left-slide .next {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -60,56 +60,57 @@
 
     opacity: 0.5;
     cursor: pointer;
-    transition: .3s;
+    transition: 0.3s;
 }
-.prev{
+.prev {
     transform: translateX(-40px);
 }
-.next{
+.next {
     transform: translateX(40px);
 }
 
-.carousel-left-bottom{
+.carousel-left-bottom {
     border: 1px solid #eee;
-    padding:1rem 0;
+    padding: 1rem 0;
 
-    font-family: Sans-serif!important;
+    font-family: Sans-serif !important;
     font-size: 13px;
     cursor: pointer;
 }
-.slick-current{
+.slick-current {
     font-weight: 600;
 }
-.slick-slider button, .slick-next{
+.slick-slider button,
+.slick-next {
     opacity: 0;
 }
-.carousel-right{
+.carousel-right {
     width: 30%;
-    margin:0 auto;
-    margin-left: .5rem;
+    margin: 0 auto;
+    margin-left: 0.5rem;
 }
-.carousel-right-item{
-    margin-bottom: .5rem;
+.carousel-right-item {
+    margin-bottom: 0.5rem;
 }
-.carousel-right-item img{
+.carousel-right-item img {
     width: 100%;
     height: 140px;
 }
 
-@media screen and (max-width: 800px){
-    #carousel{
+@media screen and (max-width: 800px) {
+    #carousel {
         margin-top: 0;
     }
     .carousel {
         width: 100%;
-        padding: .5rem;
+        padding: 0.5rem;
     }
     .carousel-left {
         width: 100%;
         margin: 0 auto;
         position: relative;
     }
-    .carousel-right{
+    .carousel-right {
         display: none;
     }
 }

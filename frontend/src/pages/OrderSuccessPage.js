@@ -1,10 +1,10 @@
-import React from 'react'
-import VnPaySuccess from '../components/order/VnPaySuccess'
+import React from "react";
+import VnPaySuccess from "../components/order/VnPaySuccess";
 
 export default function OrderSuccessPage() {
-    return (
-        <div>
-            <VnPaySuccess></VnPaySuccess>
-        </div>
-    )
+  return (
+    <div>
+      <VnPaySuccess></VnPaySuccess>
+    </div>
+  );
 }
