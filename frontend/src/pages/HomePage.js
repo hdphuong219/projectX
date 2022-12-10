@@ -1,7 +1,10 @@
 import React from "react";
 import Header from "../components/header/Header";
 import Carousel from "../components/Slider/Carousel";
-import ListCategories from "../components/HotSale/components/ListCategories";
+import Cooker from "../components/HotSale/components/Cooker";
+import FamilyDevice from "../components/HotSale/components/FamilyDevice";
+import Fan from "../components/HotSale/components/Fan";
+import Blender from "../components/HotSale/components/Blender";
 import Footer from "../components/footer/Footer";
 import AppChat from "../components/AppChat/AppChat";
 import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
@@ -14,7 +17,10 @@ function HomePage() {
     <div style={{ position: "relative" }}>
       <Header></Header>
       <Carousel></Carousel>
-      <ListCategories></ListCategories>
+      <Cooker></Cooker>
+      <FamilyDevice></FamilyDevice>
+      <Blender></Blender>
+      <Fan></Fan>
       <Footer></Footer>
       <ScrollToTop></ScrollToTop>
       {userInfo && userInfo.isAdmin === false && <AppChat></AppChat>}

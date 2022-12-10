@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  BellOutlined,
+  LogoutOutlined,
   SearchOutlined,
   ShoppingCartOutlined,
   ShoppingOutlined,
@@ -9,8 +9,16 @@ import {
 } from "@ant-design/icons";
 import "./DashBoard.css";
 import ChartDashBoard from "./ChartDashBoard";
+import { useDispatch } from "react-redux";
+import { SignoutUser } from "../../../../actions/UserAction";
 
 export default function DashBoard() {
+  const dispatch = useDispatch();
+
+  const handleSignout = () => {
+    dispatch(SignoutUser());
+  };
+
   return (
     <section id="dashboard">
       <div className="dashboard">
@@ -24,16 +32,9 @@ export default function DashBoard() {
             </form>
           </div>
           <div className="dashboard-top-content">
-            <li className="dashboard-top-content-avatar">
-              <img
-                src="https://res.cloudinary.com/caokhahieu/image/upload/v1626334932/gediogbkwlg85kbbsamq.jpg"
-                alt=""
-              ></img>
-              <span>Admin</span>
-            </li>
-            <li className="dashboard-top-content-bell">
-              <BellOutlined></BellOutlined>
-            </li>
+            <div className="add-product">
+              <LogoutOutlined onClick={handleSignout} />
+            </div>
           </div>
         </div>
 

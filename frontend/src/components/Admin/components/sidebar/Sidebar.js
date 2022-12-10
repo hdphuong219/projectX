@@ -1,19 +1,17 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GetAllOrderPendding } from "../../../../actions/OrderAction";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Sidebar.css";
 import {
   AppstoreOutlined,
   UsergroupAddOutlined,
   ShopOutlined,
   OrderedListOutlined,
-  WechatOutlined,
 } from "@ant-design/icons";
 
 function Sidebar(props) {
   const dispatch = useDispatch();
-  const location = useLocation();
   const { orderPendding } = useSelector((state) => state.allOrder);
   let totalNewOrder;
 
@@ -42,12 +40,6 @@ function Sidebar(props) {
             <AppstoreOutlined></AppstoreOutlined>
           </span>
           <p>Bảng điều khiển</p>
-        </Link>
-        <Link to="/admin/category" className={"sidebar-list-item"}>
-          <span>
-            <ShopOutlined></ShopOutlined>
-          </span>
-          <p>Danh mục</p>
         </Link>
         <Link to="/admin/product" className={"sidebar-list-item"}>
           <span>

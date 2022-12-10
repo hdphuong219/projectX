@@ -17,9 +17,11 @@ function AdminCreate(props) {
 
   const [image, setImage] = useState("");
   const [activeTypeProduct, setActiveTypeproduct] = useState("");
-  const SelectList = useSelector(state => state.selectList.List)
+  const SelectList = useSelector((state) => state.selectList.List);
   const { pages } = useSelector((state) => state.allProduct.product);
   const { List } = useSelector((state) => state.allTypeProduct);
+
+  console.log(SelectList);
 
   useEffect(() => {
     dispatch(getAllSelectList());
@@ -82,23 +84,21 @@ function AdminCreate(props) {
         onSubmit={handleSubmit(onSubmit)}
         encType="multipart/form-data"
       >
-        <input {...register("name")} placeholder="Name"></input>
+        <input {...register("name")} placeholder="Tên sản phẩm"></input>
         <input
           {...register("amount")}
           placeholder="Amount"
           type="number"
         ></input>
-        <input {...register("price")} placeholder="Price" type="number"></input>
+        <input {...register("price")} placeholder="Giá" type="number"></input>
         <input
           {...register("salePrice")}
-          placeholder="SalePrice"
+          placeholder="Giá khuyến mãi"
           type="number"
         ></input>
 
         <div className="filter-menu-firm">
-          {
-            List ? (List.map((item) => MenuFirmProduct(item))) : ''
-          }
+          {List ? List.map((item) => MenuFirmProduct(item)) : ""}
         </div>
 
         {SelectList && SelectList.length > 0
