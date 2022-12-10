@@ -66,7 +66,7 @@ function AdminCreate(props) {
       }
       onClick={() => HandleFilterProductByType(item.name)}
     >
-      <img src={item.img}></img>
+      <img src={item.img} alt=""></img>
     </div>
   );
 

@@ -30,21 +30,23 @@ function Login(props) {
   });
 
   return (
-    <div class="login-page">
-      <h2> ĐĂNG NHẬP </h2>
-      <form onSubmit={handleSubmit(onSubmit)} class="form-login">
-        <input {...register("email")} placeholder="Email" required></input>
-        <input
-          {...register("password")}
-          placeholder="Password"
-          type="password"
-          required
-        ></input>
+    <div className="layout-auth">
+      <div class="login-page">
+        <h2> ĐĂNG NHẬP </h2>
+        <form onSubmit={handleSubmit(onSubmit)} class="form-login">
+          <input {...register("email")} placeholder="Email" required></input>
+          <input
+            {...register("password")}
+            placeholder="Mật khẩu"
+            type="password"
+            required
+          ></input>
 
-        <input type="submit" value="Đăng Nhập"></input>
-        {error ? <h2>{error}</h2> : <></>}
-        <Link to="/register">Tạo tài khoản?</Link>
-      </form>
+          <input type="submit" value="Đăng Nhập"></input>
+          {error ? <h2>{error}</h2> : <></>}
+          <Link to="/register">Tạo tài khoản?</Link>
+        </form>
+      </div>
     </div>
   );
 }

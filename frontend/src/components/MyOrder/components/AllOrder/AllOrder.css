@@ -43,11 +43,11 @@
 }
 .all-myorder-item-totalprice strong{
     font-size: 20px;
-    color: #d70018;
+    color: #4a90e2;
 }
 
 .myorder-cancel{
     font-size: 15px;
-    color: #d70018;
+    color: #4a90e2;
     cursor: pointer;
 }

@@ -16,7 +16,7 @@
     cursor: pointer;
 }
 .filter-menu-item-name.active {
-    border: 1px solid #d70018;
+    border: 1px solid #4a90e2;
 }
 .filter-menu-item-name span {
     font-size: 14px;
@@ -25,11 +25,11 @@
     margin-left: 0.3rem;
 }
 .filter-menu-item-name:hover {
-    border: 1px solid #d70018;
+    border: 1px solid #4a90e2;
     transition: 0.3s;
 }
 .filter-menu-item-name:hover span {
-    color: #d70018;
+    color: #4a90e2;
     transition: 0.3s;
 }
 
@@ -56,12 +56,12 @@
     cursor: pointer;
 }
 .menu-show-item.active {
-    background: #d70018;
+    background: #4a90e2;
     color: white;
 }
 .menu-show-item:hover {
-    color: #d70018;
-    border: 1px solid #d70018;
+    color: #4a90e2;
+    border: 1px solid #4a90e2;
 }
 .menu-show-btn {
     display: flex;
