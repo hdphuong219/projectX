@@ -28,9 +28,9 @@ export const deleteTypeProduct = expressAsyncHandler(async (req, res) => {
 
     if(typeProduct){
         await typeProduct.remove()
-        res.send({msg: 'deleted type product'})
+        res.send({msg: 'Đã xoá loại sản phẩm'})
     }else{
-        res.send({msg: 'product not found'})
+        res.send({msg: 'Không có sản phẩm'})
     }
 
 })
