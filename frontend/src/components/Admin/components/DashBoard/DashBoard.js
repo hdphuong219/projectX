@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   LogoutOutlined,
   SearchOutlined,
@@ -6,18 +6,31 @@ import {
   ShoppingOutlined,
   ShopOutlined,
   UserOutlined,
+  MoneyCollectOutlined,
 } from "@ant-design/icons";
 import "./DashBoard.css";
 import ChartDashBoard from "./ChartDashBoard";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { SignoutUser } from "../../../../actions/UserAction";
+import { GetAllOrderPaid } from "../../../../actions/OrderAction";
+import { getDashboardAction } from "../../../../actions/DashboardAction";
+import { formatPrice } from "../../../../utils";
 
 export default function DashBoard() {
   const dispatch = useDispatch();
+  const { data } = useSelector((state) => state.dashboard);
 
   const handleSignout = () => {
     dispatch(SignoutUser());
   };
+
+  useEffect(() => {
+    dispatch(GetAllOrderPaid());
+  }, []);
+
+  useEffect(() => {
+    dispatch(getDashboardAction());
+  }, []);
 
   return (
     <section id="dashboard">
@@ -41,46 +54,67 @@ export default function DashBoard() {
         <div className="dashboard-middle">
           <div className="dashboard-middle-statistic">
             <div className="dashboard-middle-statistic-content">
-              <li>
+              <li style={{ display: "flex", justifyContent: "space-around" }}>
                 <div className="dashboard-middle-statistic-icon">
                   <ShoppingOutlined></ShoppingOutlined>
                 </div>
                 <div className="dashboard-middle-statistic-title">
-                  <span className="total">1666</span>
+                  <span className="total">
+                    {data.total_category && data.total_category}
+                  </span>
                   <span className="title">Danh mục</span>
                 </div>
               </li>
             </div>
             <div className="dashboard-middle-statistic-content">
-              <li>
+              <li style={{ display: "flex", justifyContent: "space-around" }}>
                 <div className="dashboard-middle-statistic-icon">
                   <ShopOutlined></ShopOutlined>
                 </div>
                 <div className="dashboard-middle-statistic-title">
-                  <span className="total">25</span>
+                  <span className="total">
+                    {data.total_product && data.total_product}
+                  </span>
                   <span className="title">Sản phẩm</span>
                 </div>
               </li>
             </div>
             <div className="dashboard-middle-statistic-content">
-              <li>
+              <li style={{ display: "flex", justifyContent: "space-around" }}>
                 <div className="dashboard-middle-statistic-icon">
                   <UserOutlined></UserOutlined>
                 </div>
                 <div className="dashboard-middle-statistic-title">
-                  <span className="total">2000</span>
+                  <span className="total">
+                    {data.total_user && data.total_user - 1}
+                  </span>
                   <span className="title">Khách hàng</span>
                 </div>
               </li>
             </div>
             <div className="dashboard-middle-statistic-content">
-              <li>
+              <li style={{ display: "flex", justifyContent: "space-around" }}>
                 <div className="dashboard-middle-statistic-icon">
                   <ShoppingCartOutlined></ShoppingCartOutlined>
                 </div>
                 <div className="dashboard-middle-statistic-title">
-                  <span className="total">1208</span>
+                  <span className="total">
+                    {data.total_order && data.total_order}
+                  </span>
                   <span className="title">Đặt hàng</span>
+                </div>
+              </li>
+            </div>
+            <div className="dashboard-middle-statistic-content">
+              <li style={{ display: "flex", justifyContent: "space-around" }}>
+                <div className="dashboard-middle-statistic-icon">
+                  <MoneyCollectOutlined />
+                </div>
+                <div className="dashboard-middle-statistic-title">
+                  <span className="total">
+                    {data.total_revenue && formatPrice(data.total_revenue)} đ
+                  </span>
+                  <span className="title">Doanh thu</span>
                 </div>
               </li>
             </div>

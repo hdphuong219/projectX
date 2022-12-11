@@ -8,6 +8,7 @@ import {
 } from "../../../../actions/ProductAction";
 import { useHistory, useParams } from "react-router-dom";
 import { getAllSelectList } from "../../../../actions/SelectListAction";
+import { getListCategoryAction } from "../../../../actions/CategoryAction";
 
 function AdminUpdate(props) {
   const { register, handleSubmit } = useForm();
@@ -20,6 +21,7 @@ function AdminUpdate(props) {
   const SelectList = useSelector((state) => state.selectList.List);
   const [activeTypeProduct, setActiveTypeproduct] = useState(undefined);
   const { List } = useSelector((state) => state.allTypeProduct);
+  const { categoryList } = useSelector((state) => state.category);
 
   useEffect(() => {
     dispatch(getproductById(id));
@@ -37,6 +39,10 @@ function AdminUpdate(props) {
     dispatch(getAllSelectList());
   }, []);
 
+  useEffect(() => {
+    dispatch(getListCategoryAction());
+  }, [dispatch]);
+
   const handleFileImageChange = (e) => {
     setImage(e.target.files[0]);
   };
@@ -48,45 +54,21 @@ function AdminUpdate(props) {
     formData.append("price", data.price);
     formData.append("amount", data.amount);
     formData.append("salePrice", data.salePrice);
-    formData.append(
-      "type",
-      activeTypeProduct ? activeTypeProduct : detailProduct.type
-    );
+    formData.append("category_id", data.category_id);
     formData.append("image", image);
     formData.append("_id", id);
 
-    formData.append("os", data.os);
-    formData.append("ram", data.ram);
-    formData.append("battery", data.battery);
-    formData.append("rom", data.rom);
-    formData.append("camera", data.camera);
-    formData.append("special", data.special);
-    formData.append("design", data.design);
-    formData.append("screen", data.screen);
+    // formData.append("os", data.os);
+    // formData.append("ram", data.ram);
+    // formData.append("battery", data.battery);
+    // formData.append("rom", data.rom);
+    // formData.append("camera", data.camera);
+    // formData.append("special", data.special);
+    // formData.append("design", data.design);
+    // formData.append("screen", data.screen);
 
     await dispatch(saveProduct(formData));
     history.push("/admin/product");
-  };
-
-  const MenuFirmProduct = (item) => (
-    <div
-      className={
-        activeTypeProduct
-          ? activeTypeProduct === item.name
-            ? `filter-menu-firm-item active`
-            : "filter-menu-firm-item"
-          : detailProduct.type === item.name
-          ? `filter-menu-firm-item active`
-          : "filter-menu-firm-item"
-      }
-      onClick={() => HandleFilterProductByType(item.name)}
-    >
-      <img src={item.img}></img>
-    </div>
-  );
-
-  const HandleFilterProductByType = (name) => {
-    setActiveTypeproduct(name);
   };
 
   return (
@@ -122,10 +104,25 @@ function AdminUpdate(props) {
             defaultValue={detailProduct.salePrice}
           ></input>
 
-          <div className="filter-menu-firm">
-          {
-            List ? (List.map((item) => MenuFirmProduct(item))) : ''
-          }
+          {categoryList.length > 0 && (
+            <div className="select-type">
+              <select
+                {...register("category_id")}
+                defaultValue={detailProduct.category_id}
+              >
+                {categoryList.map((item, index) => {
+                  return (
+                    <option key={index} value={item._id}>
+                      {item.name}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+          )}
+
+          {/* <div className="filter-menu-firm">
+            {List ? List.map((item) => MenuFirmProduct(item)) : ""}
           </div>
 
           {SelectList && SelectList.length > 0
@@ -141,7 +138,7 @@ function AdminUpdate(props) {
                   </select>
                 </div>
               ))
-            : ""}
+            : ""} */}
 
           <input
             type="file"

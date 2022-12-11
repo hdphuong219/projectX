@@ -29,10 +29,7 @@ function Sidebar(props) {
   return (
     <div className="sidebar">
       <div className="sidebar-top">
-        <img
-          src="https://raw.githubusercontent.com/trananhtuat/tua-react-admin/main/src/assets/images/logo.png"
-          alt=""
-        ></img>
+        ADMIN
       </div>
       <div className="sidebar-list">
         <Link to="/admin" className={"sidebar-list-item"}>
@@ -59,15 +56,11 @@ function Sidebar(props) {
           </span>
           <p>
             Đặt hàng
-            <div className="admin-order-new">{totalNewOrder}</div>
+            {totalNewOrder > 0 && (
+              <div className="admin-order-new">{totalNewOrder}</div>
+            )}
           </p>
         </Link>
-        {/* <Link to="/admin/chat" className={location.pathname === '/admin/chat' ? 'sidebar-list-item active': 'sidebar-list-item'}>
-          <span>
-            <WechatOutlined></WechatOutlined>
-          </span>
-          <p>Chat</p>
-        </Link> */}
       </div>
     </div>
   );

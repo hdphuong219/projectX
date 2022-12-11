@@ -37,12 +37,12 @@ function DetailInfo(props) {
           </Link>
         </div>
         <div className="detail-info-right-buy-installment">
-          <a href="/">
+          <a>
             <strong>TRẢ GÓP 0%</strong>
             <br></br>
             <span>(Xét duyệt qua điện thoại)</span>
           </a>
-          <a href="/">
+          <a>
             <strong>TRẢ GÓP QUA THẺ</strong>
             <br></br>
             <span>(Visa, Master, JCB)</span>

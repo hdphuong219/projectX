@@ -52,6 +52,19 @@
     padding: 0rem 1rem;
     text-transform: uppercase;
 }
+.name-user {
+    position: relative;
+    text-decoration: none;
+    font-size: 1rem;
+    color: #fff;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0rem 1rem;
+    text-transform: uppercase;
+}
 .menu-list ul {
     margin: 0;
     padding: 0;
@@ -72,6 +85,16 @@
 .menu-drop a {
     padding: 0.3rem 1rem;
     color: #333;
+}
+
+.btn-logout {
+    padding: 0.3rem 1rem;
+    color: #333;
+}
+.btn-logout:hover {
+    background: #eee;
+    color: #333;
+    border-radius: 5px;
 }
 .menu-drop a:hover {
     background: #eee;

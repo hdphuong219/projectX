@@ -101,7 +101,7 @@ function Order(props) {
 
   return (
     <section id="order">
-      <div className="order-content">
+      <div className="order-content d-flex justify-content-center align-items-center">
         <form className="order-page" onSubmit={handleSubmit(onSubmit)}>
           <div className="customer">
             <h4>THÔNG TIN KHÁCH HÀNG </h4>

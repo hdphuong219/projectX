@@ -6,7 +6,7 @@ import {
 } from "../../../../actions/ProductAction";
 import { Link } from "react-router-dom";
 import { formatPrice } from "../../../../utils/index";
-import { DeleteOutlined, EditOutlined, FormOutlined } from "@ant-design/icons";
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 
 function Product(props) {
   const { product, number } = props;
@@ -46,11 +46,6 @@ function Product(props) {
       <td className="update-product">
         <Link to={`/admin/product/update/${product._id}`}>
           <EditOutlined></EditOutlined>
-        </Link>
-      </td>
-      <td className="review-product">
-        <Link to={`/admin/product/reviewProduct/${product._id}`}>
-          <FormOutlined></FormOutlined>
         </Link>
       </td>
     </tr>

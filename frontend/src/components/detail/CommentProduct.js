@@ -47,7 +47,7 @@ function CommentProduct(props) {
           style={{ display: "flex", alignItems: "center" }}
         >
           <textarea
-            placeholder="Xin mời để lại câu hỏi, CellphoneS sẽ trả lời trong 1h từ 8h - 22h mỗi ngày."
+            placeholder="Xin mời để lại câu hỏi, Chúng tôi sẽ trả lời trong 1h từ 8h - 22h mỗi ngày."
             rows={10}
             cols={3}
             value={value}

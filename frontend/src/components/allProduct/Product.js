@@ -24,7 +24,6 @@ function Product(props) {
       </div>
       <div className="buy">
         <a href="/cart" onClick={() => AddToCart(product)}>
-          {" "}
           Mua Ngay
         </a>
       </div>

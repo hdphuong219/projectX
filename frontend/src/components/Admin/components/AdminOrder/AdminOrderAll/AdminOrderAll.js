@@ -3,17 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllOrder } from "../../../../../actions/OrderAction";
 import ListOrder from "../AdminOrderUI/ListOrder";
 
-function AdminOrderAll(props) {
+function AdminOrderAll() {
   const dispatch = useDispatch();
   const orders = useSelector((state) => state.allOrder.order);
-  const { orderGhnInfo } = useSelector((state) => state.orderGhn);
-  const orderGhn = useSelector(state => state.orderGhn)
-  
 
   useEffect(() => {
     dispatch(getAllOrder());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
 
   return (
     <div>

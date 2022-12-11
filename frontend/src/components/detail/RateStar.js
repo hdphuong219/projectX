@@ -87,14 +87,14 @@ function RateStar(props) {
                     sao trung bình
                   </p>
                   <p
-                    className="star-average-num"
+                    className="star-average-num d-flex align-items-center"
                     style={{
                       marginBottom: 0,
                       fontSize: "25px",
                       color: "orange",
                     }}
                   >
-                    {isNaN(averageRate) ? 0 : averageRate}
+                    <div>{isNaN(averageRate) ? 0 : averageRate}</div>
                     <StarOutlined
                       style={{
                         fontSize: "23px",
