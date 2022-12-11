@@ -49,7 +49,7 @@ export const AddProduct = expressAsyncHandler(async (req, res) => {
   const product = new ProductModel({
     name: req.body.name,
     price: req.body.price,
-    discount: req.body.discount,
+    salePrice: req.body.salePrice,
     amount: req.body.amount,
     category_id: req.body.category_id,
     image: result.secure_url,
@@ -81,7 +81,7 @@ export const UpdateProduct = expressAsyncHandler(async (req, res) => {
     product.name = req.body.name;
     product.amount = req.body.amount;
     product.price = req.body.price;
-    product.discount = req.body.discount;
+    product.salePrice = req.body.salePrice;
     product.category_id = req.body.category_id;
     product.image = result?.secure_url || product.image;
     product.rating = 0;
