@@ -69,15 +69,15 @@ function Header(props) {
           </li>
           {userInfo ? (
             <li onClick={() => setShowAccount2(!showAccount2)}>
-              <Link>
+              <div className="name-user">
                 {userInfo.name}
                 <DownOutlined style={{ fontSize: "14px" }} />
-              </Link>
+              </div>
               {showAccount2 ? (
                 <div className="menu-drop">
                   {userInfo.isAdmin ? <Link to="/admin">Admin</Link> : ""}
                   <Link to="/myOrder">Đơn hàng</Link>
-                  <Link onClick={() => handleSignout()}>Đăng xuất</Link>
+                  <div className="btn-logout" onClick={() => handleSignout()}>Đăng xuất</div>
                 </div>
               ) : (
                 ""

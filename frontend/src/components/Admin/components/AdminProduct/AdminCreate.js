@@ -9,6 +9,7 @@ import {
 import { useHistory } from "react-router-dom";
 import { getAllSelectList } from "../../../../actions/SelectListAction";
 import { getAllTypeProduct } from "../../../../actions/ListTypeProductAction";
+import { getListCategoryAction } from "../../../../actions/CategoryAction";
 
 function AdminCreate(props) {
   const { register, handleSubmit } = useForm({ defaultValues: {} });
@@ -16,12 +17,8 @@ function AdminCreate(props) {
   const history = useHistory();
 
   const [image, setImage] = useState("");
-  const [activeTypeProduct, setActiveTypeproduct] = useState("");
-  const SelectList = useSelector((state) => state.selectList.List);
   const { pages } = useSelector((state) => state.allProduct.product);
-  const { List } = useSelector((state) => state.allTypeProduct);
-
-  console.log(SelectList);
+  const { categoryList } = useSelector((state) => state.category);
 
   useEffect(() => {
     dispatch(getAllSelectList());
@@ -29,6 +26,10 @@ function AdminCreate(props) {
 
   useEffect(() => {
     dispatch(getAllTypeProduct());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getListCategoryAction());
   }, [dispatch]);
 
   const handleFileImageChange = (e) => {
@@ -42,38 +43,21 @@ function AdminCreate(props) {
     formData.append("price", data.price);
     formData.append("amount", data.amount);
     formData.append("salePrice", data.salePrice);
-    formData.append("type", activeTypeProduct);
+    formData.append("category_id", data.category_id);
     formData.append("image", image);
 
-    formData.append("os", data.os);
-    formData.append("ram", data.ram);
-    formData.append("battery", data.battery);
-    formData.append("rom", data.rom);
-    formData.append("camera", data.camera);
-    formData.append("special", data.special);
-    formData.append("design", data.design);
-    formData.append("screen", data.screen);
+    // formData.append("os", data.os);
+    // formData.append("ram", data.ram);
+    // formData.append("battery", data.battery);
+    // formData.append("rom", data.rom);
+    // formData.append("camera", data.camera);
+    // formData.append("special", data.special);
+    // formData.append("design", data.design);
+    // formData.append("screen", data.screen);
 
     await dispatch(saveProduct(formData));
     await dispatch(editCurrentPage(pages));
     history.push("/admin/product");
-  };
-
-  const MenuFirmProduct = (item) => (
-    <div
-      className={
-        activeTypeProduct === item.name
-          ? `filter-menu-firm-item active`
-          : "filter-menu-firm-item"
-      }
-      onClick={() => HandleFilterProductByType(item.name)}
-    >
-      <img src={item.img} alt=""></img>
-    </div>
-  );
-
-  const HandleFilterProductByType = (name) => {
-    setActiveTypeproduct(name);
   };
 
   return (
@@ -96,23 +80,19 @@ function AdminCreate(props) {
           placeholder="Giá khuyến mãi"
           type="number"
         ></input>
-
-        <div className="filter-menu-firm">
-          {List ? List.map((item) => MenuFirmProduct(item)) : ""}
-        </div>
-
-        {SelectList && SelectList.length > 0
-          ? SelectList.map((item) => (
-              <div className="select-type">
-                <select {...register(`${item.property}`)}>
-                  <option>{item.name}</option>
-                  {item.options.map((x) => (
-                    <option value={x}>{x}</option>
-                  ))}
-                </select>
-              </div>
-            ))
-          : ""}
+        {categoryList.length > 0 && (
+          <div className="select-type">
+            <select {...register("category_id")}>
+              {categoryList.map((item, index) => {
+                return (
+                  <option key={index} value={item._id}>
+                    {item.name}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+        )}
 
         <input
           type="file"

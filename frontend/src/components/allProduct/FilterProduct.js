@@ -3,8 +3,6 @@ import { useDispatch } from "react-redux";
 import {
   filterProductByPrice,
 } from "../../actions/ProductAction";
-import { formatPrice } from "../../utils/index";
-import FilterMenu from "./FilterMenu/FilterMenu";
 
 
 function FilterProduct(props) {
@@ -22,7 +20,6 @@ function FilterProduct(props) {
 
   return (
     <div className="filter">
-      <FilterMenu></FilterMenu>
       
       <div className="options-price">
         <input

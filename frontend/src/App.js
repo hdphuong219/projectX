@@ -11,8 +11,6 @@ import SearchPage from "./pages/SearchPage";
 import AdminPage from "./pages/AdminPage";
 import ResetScroll from "./components/ResetScroll/ResetScroll";
 import MyOrderPage from "./pages/MyOrderPage";
-import ChatPage from "./pages/ChatPage";
-import PaymentPage from "./pages/PaymentPage";
 import OrderSuccessPage from "./pages/OrderSuccessPage";
 
 function App() {
@@ -49,9 +47,6 @@ function App() {
         <Route path="/orderSuccess">
           <OrderSuccessPage></OrderSuccessPage>
         </Route>
-        <Route path="/payment">
-          <PaymentPage></PaymentPage>
-        </Route>
         <Route path="/MyOrder">
           <MyOrderPage></MyOrderPage>
         </Route>
@@ -60,17 +55,9 @@ function App() {
           <SearchPage></SearchPage>
         </Route>
 
-        <Route path="/chat">
-          <ChatPage></ChatPage>
-        </Route>
-
         <Route path="/admin">
           <AdminPage></AdminPage>
         </Route>
-
-        {/* <Route path='*'>
-          <HomePage></HomePage>
-        </Route> */}
       </Router>
     </div>
   );

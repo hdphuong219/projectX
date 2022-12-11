@@ -1,14 +1,13 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { createOrderGhn } from "../../../../../actions/GhnAction";
 import {
-  createOrderGhn,
-  PrintOrderGhn,
-} from "../../../../../actions/GhnAction";
-import { deleteOrder, getAllOrder, ShippingOrder } from "../../../../../actions/OrderAction";
-import {
-  formatPrice,
-  formatDateOrderPaypal,
-} from "../../../../../utils/index";
+  deleteOrder,
+  getAllOrder,
+  ShippingOrder,
+} from "../../../../../actions/OrderAction";
+import { formatPrice, formatDateOrderPaypal } from "../../../../../utils/index";
+import { PaidOrder } from "../../../../../actions/OrderAction";
 
 function Order(props) {
   const { order } = props;
@@ -25,20 +24,21 @@ function Order(props) {
   } = order;
 
   const handleShippingOrder = async (order) => {
-    await dispatch(createOrderGhn(order._id)); // create order in giaohangnhanh
+    await dispatch(createOrderGhn(order._id));
     await dispatch(ShippingOrder(order._id));
 
     dispatch(getAllOrder());
   };
 
-  const handlePrintOrder = (order) => {
-    dispatch(PrintOrderGhn(order._id));
+  const handlePayOrder = async (order) => {
+    await dispatch(PaidOrder(order.order_code));
+    dispatch(getAllOrder());
   };
 
   const handleDeleteOrder = async (order) => {
-    await dispatch(deleteOrder(order._id))
-    dispatch(getAllOrder())
-  }
+    await dispatch(deleteOrder(order._id));
+    dispatch(getAllOrder());
+  };
 
   return (
     <>
@@ -47,7 +47,7 @@ function Order(props) {
           {orderItems.map((item) => (
             <div className="order-items-item">
               <span className="img">
-                <img src={item.image}></img>
+                <img src={item.image} alt=""></img>
               </span>
               <span className="qty">Qty: {item.qty}</span>
               <span className="name">{item.name}</span>
@@ -60,11 +60,10 @@ function Order(props) {
         </div>
         <div className="order-info">
           <div className="order-info-address">
-            <b>Địa chỉ : </b> {"  "}
-            {shippingAddress.name},{""}
-            {shippingAddress.province}, {shippingAddress.district},{"  "}
-            {shippingAddress.ward}, {shippingAddress.detail},{" "}
-            {shippingAddress.phone}
+            <b>Địa chỉ : </b>
+            {shippingAddress.name},{shippingAddress.province},{" "}
+            {shippingAddress.district},{shippingAddress.ward},{" "}
+            {shippingAddress.detail},{shippingAddress.phone}
           </div>
         </div>
 
@@ -80,13 +79,21 @@ function Order(props) {
           {status === "shipping" ? (
             <div className="order-status">
               <span>
-                Đã xác nhận{" "}
+                Đã xác nhận
                 {paymentMethod === "payOnline" ? (
                   <span>& Đã thanh toán</span>
                 ) : (
                   ""
                 )}
               </span>
+            </div>
+          ) : (
+            ""
+          )}
+
+          {status === "paid" ? (
+            <div className="order-status">
+              <span>Đã hoàn thành</span>
             </div>
           ) : (
             ""
@@ -101,34 +108,34 @@ function Order(props) {
                 >
                   Xác nhận đơn hàng
                 </button>
-
               </>
-            ) : (''
+            ) : (
+              ""
+            )}
+            {status === "shipping" && (
+              <>
+                <button
+                  className="shipping"
+                  onClick={() => handlePayOrder(order)}
+                >
+                  Hoàn thành
+                </button>
+              </>
             )}
 
-            {
-              cancelOrder === true ? (<>
-              <span> Khách yêu cầu hủy đơn </span>
+            {cancelOrder === true ? (
+              <>
+                <span> Khách yêu cầu hủy đơn </span>
                 <button
                   className="shipping"
                   onClick={() => handleDeleteOrder(order)}
                 >
                   Hủy đơn
                 </button>
-
-              </>) : ''
-            }
-
-            {/* {status === "shipping" ? (
-              <button
-                className="shipping"
-                onClick={() => handlePrintOrder(order)}
-              >
-                In đơn hàng
-              </button>
+              </>
             ) : (
               ""
-            )} */}
+            )}
           </div>
         </div>
       </div>

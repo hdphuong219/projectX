@@ -3,18 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { paginationProduct } from "../../../../actions/ProductAction";
 import ListProduct from "./ListProduct";
 import "./AdminProduct.css";
-import { SignoutUser } from "../../../../actions/UserAction";
 import { Link } from "react-router-dom";
-import { AppstoreAddOutlined, LogoutOutlined } from "@ant-design/icons";
+import { AppstoreAddOutlined } from "@ant-design/icons";
 
 function AdminProduct(props) {
   const dispatch = useDispatch();
   const currentPage = useSelector((state) => state.allProduct.currentPage);
   const { products } = useSelector((state) => state.allProduct.product);
-
-  const handleSignout = () => {
-    dispatch(SignoutUser());
-  };
 
   useEffect(() => {
     dispatch(paginationProduct(currentPage));
@@ -26,9 +21,6 @@ function AdminProduct(props) {
         <Link to="/admin/product/create" className="add-product">
           <AppstoreAddOutlined />
         </Link>
-        <div className="add-product">
-          <LogoutOutlined onClick={handleSignout} />
-        </div>
       </div>
 
       {products ? (

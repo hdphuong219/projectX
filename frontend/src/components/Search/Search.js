@@ -15,7 +15,7 @@ function Search(props) {
             HotSaleProducts={handlePercentDiscount(products)}
           ></ListProduct>
         ) : (
-          <h2>Không tìn thấy sản phẩm</h2>
+          <h2>Không tìm thấy sản phẩm</h2>
         )}
       </div>
     </section>
