@@ -51,19 +51,10 @@ export const AddProduct = expressAsyncHandler(async (req, res) => {
     price: req.body.price,
     salePrice: req.body.salePrice,
     amount: req.body.amount,
-    type: req.body.type || 'iphone',
+    category_id: req.body.category_id,
     image: result.secure_url,
     cloudinary_id: result.public_id,
     rating: 0,
-
-    os: req.body.os,
-    ram: req.body.ram,
-    battery: req.body.battery,
-    rom: req.body.rom,
-    camera: req.body.camera,
-    special: req.body.special,
-    design: req.body.design,
-    screen: req.body.screen,
   });
   const newProduct = await product.save();
 
@@ -91,19 +82,10 @@ export const UpdateProduct = expressAsyncHandler(async (req, res) => {
     product.amount = req.body.amount;
     product.price = req.body.price;
     product.salePrice = req.body.salePrice;
-    product.type = req.body.type;
+    product.category_id = req.body.category_id;
     product.image = result?.secure_url || product.image;
     product.rating = 0;
     product.cloulinary_id = result?.public_id || product.cloudinary_id;
-
-    product.os = req.body.os;
-    product.ram = req.body.ram;
-    product.battery = req.body.battery;
-    product.rom = req.body.rom;
-    product.camera = req.body.camera;
-    product.special = req.body.special;
-    product.design = req.body.design;
-    product.screen = req.body.screen;
 
     const updateProduct = await product.save();
     if (updateProduct) {
