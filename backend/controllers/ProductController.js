@@ -20,7 +20,7 @@ export const findProductById = expressAsyncHandler(async (req, res) => {
     if(product){
         res.send(product)
     }else{
-        res.send({message: 'product not found'})
+        res.send({message: 'Không tìm thấy sản phẩm'})
     }
 })
 
@@ -38,7 +38,7 @@ export const filterProductByRandomField = expressAsyncHandler(async (req, res) =
     if(products){
         res.send(products)
     }else{
-        res.send({message: 'product not found'})
+        res.send({message: 'Không có sản phẩm'})
     }
 })
 export const AddProduct = expressAsyncHandler(async (req, res) => {
@@ -61,9 +61,9 @@ export const AddProduct = expressAsyncHandler(async (req, res) => {
   if (newProduct) {
     return res
       .status(201)
-      .send({ message: "New Product Created", data: newProduct });
+      .send({ message: "Đã thêm sản phẩm", data: newProduct });
   } else {
-    res.send("error add product");
+    res.send("Lỗi");
   }
 });
 
@@ -89,11 +89,11 @@ export const UpdateProduct = expressAsyncHandler(async (req, res) => {
 
     const updateProduct = await product.save();
     if (updateProduct) {
-      res.send("update success");
+      res.send("Chỉnh sửa sản phẩm thành công");
     }
   }
 
-  return res.send("update fail");
+  return res.send("Thất bại");
 });
 
 export const DeleteProduct = expressAsyncHandler(async (req, res) => {
@@ -103,9 +103,9 @@ export const DeleteProduct = expressAsyncHandler(async (req, res) => {
 
     if(deleteProduct){
         await deleteProduct.remove()
-        res.send({message: 'product deleted'})
+        res.send({message: 'Đã xoá sản phẩm'})
     } else{
-        res.send('error in deletetion')
+        res.send('Thất bại')
     }
 })
 
@@ -140,7 +140,7 @@ export const RateProduct = expressAsyncHandler(async (req, res) => {
     if(product){
         const existsUser = product.reviews.find(x => x.name === req.body.name)
         if(existsUser){
-            res.send({message: 'ban da danh gia san pham nay'})
+            res.send({message: 'Thành công'})
         }else{
             product.reviews.push(req.body)
             const updateProduct = await product.save()
@@ -148,7 +148,7 @@ export const RateProduct = expressAsyncHandler(async (req, res) => {
         }
         
     }else{
-        res.status(400).send({message: 'product not found'})
+        res.status(400).send({message: 'Thất bại'})
     }
 
 })
@@ -160,7 +160,7 @@ export const CommentProduct = expressAsyncHandler(async (req, res) => {
         const updateCommentProduct = await product.save()
         res.send(updateCommentProduct)
     }else{
-        res.status(400).send({message: 'product not found'})
+        res.status(400).send({message: 'Thành công'})
     }
 
 })
@@ -174,7 +174,7 @@ export const RepCommentProduct = expressAsyncHandler(async (req, res) => {
         await product.save()
         res.send(product)
     }else{
-        res.status(400).send({message: 'product not found'})
+        res.status(400).send({message: 'Thất bại'})
     }
 
 })
@@ -189,7 +189,7 @@ export const PinCommentProduct = expressAsyncHandler(async (req, res) => {
         await product.save()
         res.send(product)
     }else{
-        res.status(400).send({message: 'product not found'})
+        res.status(400).send({message: 'Thất bại'})
     }
 })
 
@@ -201,6 +201,6 @@ export const BlogProduct = expressAsyncHandler(async (req, res) => {
         await product.save()
         res.send(product)
     }else{
-        res.send({message: 'product not found'})
+        res.send({message: 'Thất bại'})
     }
 })

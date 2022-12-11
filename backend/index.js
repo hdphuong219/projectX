@@ -19,6 +19,7 @@ import PaymentRouter from './routers/PaymentRouter.js'
 import SelectListrouter from './routers/SelectListRouter.js'
 import ListTypeProductRouter from './routers/ListTypeProductRouter.js'
 import CategoryRouter from './routers/CategoryRouter.js'
+import DashboardRouter from './routers/DashboardRouter.js'
 
 dotenv.config();
 process.env.TOKEN_SECRET;
@@ -42,6 +43,7 @@ app.use('/chat', ChatRouter)
 app.use('/payment', PaymentRouter)
 app.use('/selectList', SelectListrouter)
 app.use('/typeList', ListTypeProductRouter)
+app.use('/dashboard', DashboardRouter)
 
 app.get('/api/config/paypal', (req, res) => {
     res.send(process.env.PAYPAL_CLIENT_ID || 'sb')

@@ -40,7 +40,7 @@ export const createOrder = expressAsyncHandler(async (req, res) => {
     });
 
     const createOrder = await order.save();
-    res.status(201).send({ message: "new order created", order: createOrder });
+    res.status(201).send({ message: "Tạo đơn hàng thành công", order: createOrder });
   }
 });
 
@@ -68,12 +68,11 @@ export const updateOrder = expressAsyncHandler(async (req, res) => {
       items.push(item);
     });
     updateOrder.order_code = req.params.id;
-    updateOrder.status = "paid";
     await updateOrder.save();
     res.send(updateOrder);
 
   } else {
-    res.send({ msg: "Sản phẩm không đặt hàng thành công" });
+    res.send({ msg: "Chỉnh sửa sản phẩm không thành công" });
   }
 });
 
@@ -111,7 +110,7 @@ export const PrintOrderGhn = expressAsyncHandler(async (req, res) => {
     }
     
   } else {
-    res.send({message: 'order not found'})
+    res.send({message: 'Không có đơn hàng'})
   }
 });
 
@@ -122,7 +121,7 @@ export const GetAllOrder = expressAsyncHandler(async (req, res) => {
   if (Order) {
     res.send(Order);
   } else {
-    res.status(401).send({ message: "no order" });
+    res.status(401).send({ message: "Không có đơn hàng" });
   }
 });
 
@@ -133,7 +132,7 @@ export const GetAllOrderPaypal = expressAsyncHandler(async (req, res) => {
   if (Order) {
     res.send(Order);
   } else {
-    res.status(401).send({ message: "no order" });
+    res.status(401).send({ message: "Không có đơn hàng" });
   }
 });
 
@@ -146,7 +145,7 @@ export const GetAllOrderPendding = expressAsyncHandler(async (req, res) => {
   if (Order) {
     res.send(Order);
   } else {
-    res.status(401).send({ message: "no order" });
+    res.status(401).send({ message: "Không có đơn hàng" });
   }
 });
 
@@ -157,7 +156,7 @@ export const GetAllOrderShipping = expressAsyncHandler(async (req, res) => {
   if (Order) {
     res.send(Order);
   } else {
-    res.status(401).send({ message: "no order" });
+    res.status(401).send({ message: "Không có đơn hàng" });
   }
 });
 
@@ -168,7 +167,7 @@ export const GetAllOrderPaid = expressAsyncHandler(async (req, res) => {
   if (Order) {
     res.send(Order);
   } else {
-    res.status(401).send({ message: "no order" });
+    res.status(401).send({ message: "Không có đơn hàng" });
   }
 });
 
@@ -177,9 +176,9 @@ export const DeleteOrder = expressAsyncHandler(async (req, res) => {
 
   if (deleteOrder) {
     await deleteOrder.remove();
-    res.send({ message: "product deleted" });
+    res.send({ message: "Xoá đơn hàng thành công" });
   } else {
-    res.send("error in delete order");
+    res.send("Xoá đơn hàng thất bại");
   }
 });
 
@@ -191,7 +190,7 @@ export const ShippingProduct = expressAsyncHandler(async (req, res) => {
     await Order.save();
     res.send(Order);
   } else {
-    res.status(401).send({ message: "no order" });
+    res.status(401).send({ message: "Không có đơn hàng" });
   }
 });
 
@@ -204,7 +203,7 @@ export const PaidProduct = expressAsyncHandler(async (req, res) => {
   if (Order) {
     res.send(Order);
   } else {
-    res.status(401).send({ message: "no order" });
+    res.status(401).send({ message: "Không có đơn hàng" });
   }
 });
 
@@ -217,7 +216,7 @@ export const GetOrderByUser = expressAsyncHandler(async (req, res) => {
   if (Order) {
     res.send(Order);
   } else {
-    res.status(401).send({ message: "no order by user" });
+    res.status(401).send({ message: "Không có đơn hàng cho khách hàng" });
   }
 });
 
@@ -229,7 +228,7 @@ export const GetOrderPaypalByUser = expressAsyncHandler(async (req, res) => {
   if (Order) {
     res.send(Order);
   } else {
-    res.status(401).send({ message: "no order by user" });
+    res.status(401).send({ message: "Không có đơn hàng cho khách hàng" });
   }
 });
 
@@ -241,7 +240,7 @@ export const GetOrderPenddingByUser = expressAsyncHandler(async (req, res) => {
   if (Order) {
     res.send(Order);
   } else {
-    res.status(401).send({ message: "no order by user" });
+    res.status(401).send({ message: "Không có đơn hàng cho khách hàng" });
   }
 });
 
@@ -253,7 +252,7 @@ export const GetOrderShippingByUser = expressAsyncHandler(async (req, res) => {
   if (Order) {
     res.send(Order);
   } else {
-    res.status(401).send({ message: "no order by user" });
+    res.status(401).send({ message: "Không có đơn hàng cho khách hàng" });
   }
 });
 
@@ -265,7 +264,7 @@ export const GetOrderPaidByUser = expressAsyncHandler(async (req, res) => {
   if (Order) {
     res.send(Order);
   } else {
-    res.status(401).send({ message: "no order by user" });
+    res.status(401).send({ message: "Không có đơn hàng cho khách hàng" });
   }
 });
 
@@ -280,7 +279,7 @@ export const GetAllOrderInAMonth = expressAsyncHandler(async (req, res) => {
   if (Order) {
     res.send(Order);
   } else {
-    res.status(400).send({ message: "no product in a month" });
+    res.status(400).send({ message: "Không có đơn hàng trong một tháng" });
   }
 });
 
