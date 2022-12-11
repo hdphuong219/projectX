@@ -67,54 +67,13 @@ export const updateOrder = expressAsyncHandler(async (req, res) => {
 
       items.push(item);
     });
-    const orderGhn = {
-      payment_type_id: 2,
-
-      to_name: updateOrder.name,
-      to_phone: updateOrder.shippingAddress.phone,
-      to_address: `${updateOrder.shippingAddress.province}, ${updateOrder.shippingAddress.district}, ${updateOrder.shippingAddress.ward}, ${updateOrder.shippingAddress.detail}`,
-      to_ward_code: updateOrder.to_ward_code,
-      to_district_id: updateOrder.to_district_id,
-
-      weight: 200,
-      length: 1,
-      width: 19,
-      height: 10,
-
-      service_id: 0,
-      service_type_id: 2,
-
-      note: "",
-      required_note: "KHONGCHOXEMHANG",
-
-      cod_amount: updateOrder.paymentMethod === "payOnline" ? 0 : updateOrder.totalPrice,
-      items,
-    };
     updateOrder.order_code = req.params.id;
+    updateOrder.status = "paid";
     await updateOrder.save();
     res.send(updateOrder);
 
-    // try {
-    //   const { data } = await axios.post(
-    //     "https://dev-online-gateway.ghn.vn/shiip/public-api/v2/shipping-order/create",
-    //     orderGhn,
-    //     {
-    //       headers: {
-    //         shop_id: process.env.SHOP_ID,
-    //         Token: process.env.TOKEN_GHN,
-    //       },
-    //     }
-    //   );
-
-    //   const order_code = data.data.order_code;
-
-    //   updateOrder.order_code = order_code;
-    //   await updateOrder.save();
-    //   res.send(updateOrder);
-    // } catch (error) {
-    // }
   } else {
-    res.send({ msg: "product not found" });
+    res.send({ msg: "Sản phẩm không đặt hàng thành công" });
   }
 });
 
