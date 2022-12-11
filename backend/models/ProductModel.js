@@ -35,7 +35,7 @@ const Product = new Schema(
     image: { type: String },
     amount: Number,
     cloudinary_id: { type: String },
-    discount: Number,
+    salePrice: Number,
     rating: { type: Number },
     numReviews: { type: Number },
     reviews: [reviewProduct],
