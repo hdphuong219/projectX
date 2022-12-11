@@ -9,6 +9,7 @@ export const getAllCategory = expressAsyncHandler(async (req, res) => {
 
 export const getProductByCategory = expressAsyncHandler(async (req, res) => {
     const product = await ProductModel.find({category_id: req.params.id})
+    
     if (product) {
         res.send(product)
     } else {
